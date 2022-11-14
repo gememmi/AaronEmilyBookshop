@@ -31,7 +31,7 @@ function BooksContainer() {
         )
     })
 
-    console.log(allBookCards)
+    // console.log(allBookCards)
 
     return (
         <div>
