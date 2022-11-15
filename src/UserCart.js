@@ -18,11 +18,12 @@ function UserCart(){
     
     console.log(usersBooks)
 
-    const mappedBooks = usersBooks.map((book) =>
-       <h1>{book.title}</h1>
+    const mappedBooks = usersBooks.map((book) => 
+    
+      <h1>{book.title}</h1>
     )
     
-
+    
     return(
 
         <div>

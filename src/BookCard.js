@@ -53,6 +53,7 @@ function BookCard({bookObject,id, front, title, author, genre, back, pages, firs
                     
         }
         <button value={bookObject} onClick={()=>addToCart()}>{displayInCart ? "Remove from cart" : "Add to cart"}</button>
+        
 
             </div>
         </li>
