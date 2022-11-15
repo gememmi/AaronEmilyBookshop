@@ -6,6 +6,9 @@ function BookCard({front, title, author, genre, back, pages, firstPublished}) {
     function handleClick(){
         setDisplayInfo(!displayInfo)
     }
+    function addToCart(){
+
+    }
 
     return (
 
@@ -28,7 +31,8 @@ function BookCard({front, title, author, genre, back, pages, firstPublished}) {
                     <p>{firstPublished}</p>
                     </div>
                     
-                    }
+        }
+        <button onClick={addToCart}>Add to Cart</button>
 
             </div>
         </li>

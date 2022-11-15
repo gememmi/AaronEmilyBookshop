@@ -7,6 +7,7 @@ import GiftCard from './GiftCard';
 function BooksContainer() {
 
     const [booksArray, setBooksArray] = useState([])
+    const [ searchedItems, setSearchedItems] = useState("")
 
     useEffect(() => {
         fetch('http://localhost:3000/books')
@@ -14,7 +15,22 @@ function BooksContainer() {
         .then(bookObjects => setBooksArray(bookObjects))
     }, [])
 
-    const allBookCards = booksArray.map(bookObject => {
+    const searchedItemsArray = booksArray.filter((bookObject) => {
+        return bookObject.title.toLowerCase().includes(searchedItems.toLowerCase())
+
+        ||
+
+        bookObject.author.toLowerCase().includes(searchedItems.toLowerCase())
+
+
+        ||
+
+        bookObject.genre.toLowerCase().includes(searchedItems.toLowerCase())
+
+    })
+
+    
+    const allBookCards = searchedItemsArray.map(bookObject => {
         return (
             <BookCard 
             key={bookObject.id} 
@@ -30,12 +46,17 @@ function BooksContainer() {
 
         )
     })
+    function handleSearch(event){
+        setSearchedItems(event.target.value)
+    }
+    
 
-    // console.log(allBookCards)
+
+  
 
     return (
         <div>
-            {/* <SearchBar /> */}
+            <SearchBar handleSearch={handleSearch} />
             <ul className="cards">
                 { allBookCards }
             </ul>
