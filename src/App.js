@@ -11,7 +11,8 @@ function App() {
 
     const [booksArray, setBooksArray] = useState([])
     const [ searchedItems, setSearchedItems] = useState("")
-    const [userBooks, setUserBooks] = useState([])
+    
+    // const [isInCart, setIsInCart] = useState(false)
 
     useEffect(() => {
         fetch('http://localhost:3000/books')
@@ -37,6 +38,15 @@ function App() {
 
     }
 
+  //   function addToCart(event){
+   
+  //          setIsInCart(!isInCart)
+  //          console.log(event)
+
+  // }
+
+
+
     
     const allBookCards = searchedItemsArray.map(bookObject => {
         
@@ -45,7 +55,7 @@ function App() {
             return ( 
         
             <BookCard
-            key={bookObject.id} 
+            id={bookObject.id} 
             bookObject={bookObject}
             title={bookObject.title} 
             author={bookObject.author}
@@ -54,7 +64,11 @@ function App() {
             back={bookObject.back}
             pages={bookObject.pages}
             firstPublished={bookObject.firstPublished}
+            isInCart={bookObject.isInCart}
             handleClick={handleClick}
+            // addToCart={addToCart}
+            // isInCart={isInCart}
+            
             />
 
         )
@@ -64,6 +78,7 @@ function App() {
 
     function handleSearch(event){
         setSearchedItems(event.target.value)
+        console.log(event)
     }
   
 
@@ -83,7 +98,7 @@ function App() {
       </Route>
 
       <Route exact path ="/usercart">
-        <UserCart />
+        <UserCart booksArray={booksArray} />
       </Route>
 
       </Switch>

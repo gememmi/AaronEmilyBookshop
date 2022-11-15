@@ -1,12 +1,30 @@
 import React, {useState} from 'react';
 
-function BookCard({bookObject, front, title, author, genre, back, pages, firstPublished, handleClick}) {
+function BookCard({bookObject,id, front, title, author, genre, back, pages, firstPublished, handleClick, addToCart}) {
     const [displayInfo, setDisplayInfo]= useState(true)
+    const [isInCart, setIsInCart] = useState(false)
+    
 
     function handleClick(){
         setDisplayInfo(!displayInfo)
     }
-    function addToCart(){
+
+
+    function addToCart(event){
+   
+        setIsInCart(!isInCart)
+        console.log(id)
+        fetch(`http://localhost:3000/books/${id}`,
+        {
+        method:"PATCH",
+        headers:{"Content-Type":"application/json",
+        },
+        body:JSON.stringify({isInCart: !bookObject.isInCart,}),
+        }
+        )
+        .then((r)=>r.json())
+        .then((updatedItem)=>console.log(updatedItem));
+
 
     }
 
@@ -32,7 +50,7 @@ function BookCard({bookObject, front, title, author, genre, back, pages, firstPu
                     </div>
                     
         }
-        <button value={bookObject} onClick={addToCart}>Add to Cart</button>
+        <button value={bookObject} onClick={()=>addToCart(title)}>{isInCart ? "In your Cart!" : "Add to cart"}</button>
 
             </div>
         </li>
