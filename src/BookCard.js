@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-function BookCard({front, title, author, genre, back, pages, firstPublished}) {
+function BookCard({bookObject, front, title, author, genre, back, pages, firstPublished, handleClick}) {
     const [displayInfo, setDisplayInfo]= useState(true)
 
     function handleClick(){
@@ -32,7 +32,7 @@ function BookCard({front, title, author, genre, back, pages, firstPublished}) {
                     </div>
                     
         }
-        <button onClick={addToCart}>Add to Cart</button>
+        <button value={bookObject} onClick={addToCart}>Add to Cart</button>
 
             </div>
         </li>
