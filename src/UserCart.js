@@ -22,7 +22,7 @@ function UserCart(){
        <h1>{book.title}</h1>
     )
     
-    console.log(mappedBooks)
+
     return(
 
         <div>

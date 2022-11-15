@@ -17,8 +17,11 @@ function App() {
     useEffect(() => {
         fetch('http://localhost:3000/books')
         .then(response => response.json())
-        .then(bookObjects => setBooksArray(bookObjects))
+        .then(bookObjects => setBooksArray(bookObjects)
+          
+          )
     }, [])
+
 
     const searchedItemsArray = booksArray.filter((bookObject) => {
         return bookObject.title.toLowerCase().includes(searchedItems.toLowerCase())
@@ -33,10 +36,10 @@ function App() {
         bookObject.genre.toLowerCase().includes(searchedItems.toLowerCase())
 
     })
-    function handleClick(event){
-        console.log(event.target.value)
+    // function handleClick(event){
+    //     console.log(event.target.value)
 
-    }
+    // }
 
   //   function addToCart(event){
    
@@ -65,7 +68,8 @@ function App() {
             pages={bookObject.pages}
             firstPublished={bookObject.firstPublished}
             isInCart={bookObject.isInCart}
-            handleClick={handleClick}
+            handleAddToDom={handleAddToDom}
+            // handleClick={handleClick}
             // addToCart={addToCart}
             // isInCart={isInCart}
             
@@ -74,6 +78,16 @@ function App() {
         )
     })
 
+    function handleAddToDom(updatedItem){
+      const booksOnDom = booksArray.map((bookObject) => {
+        if (bookObject.id === updatedItem.id)
+        return {...bookObject, isInCart: updatedItem.isInCart}
+      else {
+        return bookObject
+      }
+      }) 
+      setBooksArray(booksOnDom)
+    }
 
 
     function handleSearch(event){
@@ -94,11 +108,15 @@ function App() {
       <Route exact path = "/bookscontainer">
          <BooksContainer allBookCards={allBookCards}
          handleSearch={handleSearch}
+      
+        
           />
       </Route>
 
       <Route exact path ="/usercart">
-        <UserCart booksArray={booksArray} />
+        <UserCart 
+        booksArray={booksArray} 
+        />
       </Route>
 
       </Switch>
