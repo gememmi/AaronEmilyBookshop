@@ -8,6 +8,7 @@ function SearchBar({handleSearch}) {
                 type="text"
                 className="searchTerm"
                 onChange={handleSearch}
+                placeholder= "Search book collection..."
             />
         </div>
 

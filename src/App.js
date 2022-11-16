@@ -4,15 +4,14 @@ import BooksContainer from './BooksContainer';
 import UserCart from './UserCart';
 import NavBar from './NavBar';
 import About from './About'
-import SearchBar from './SearchBar'
 import BookCard from './BookCard'
+import GiftCard from "./GiftCard"
 
 function App() {
 
     const [booksArray, setBooksArray] = useState([])
     const [ searchedItems, setSearchedItems] = useState("")
-    
-    // const [isInCart, setIsInCart] = useState(false)
+    const [giftCardTotal, setGiftCardTotal] = useState(50)
 
     useEffect(() => {
         fetch('http://localhost:3000/books')
@@ -21,43 +20,18 @@ function App() {
           
           )
     }, [])
-
-
-    const searchedItemsArray = booksArray.filter((bookObject) => {
-        return bookObject.title.toLowerCase().includes(searchedItems.toLowerCase())
-
-        ||
-
-        bookObject.author.toLowerCase().includes(searchedItems.toLowerCase())
-
-
-        ||
-
-        bookObject.genre.toLowerCase().includes(searchedItems.toLowerCase())
-
-    })
-    // function handleClick(event){
-    //     console.log(event.target.value)
-
-    // }
-
-  //   function addToCart(event){
    
-  //          setIsInCart(!isInCart)
-  //          console.log(event)
+    const searchedItemsArray = booksArray.filter((bookObject) => {
+      return bookObject.title.toLowerCase().includes(searchedItems.toLowerCase())
+        ||
+              bookObject.author.toLowerCase().includes(searchedItems.toLowerCase())
+        ||
+              bookObject.genre.toLowerCase().includes(searchedItems.toLowerCase())
+      })
 
-  // }
-
-
-
-    
     const allBookCards = searchedItemsArray.map(bookObject => {
-        
-  
-          
-            return ( 
-        
-            <BookCard
+      return ( 
+        <BookCard
             id={bookObject.id} 
             bookObject={bookObject}
             title={bookObject.title} 
@@ -66,21 +40,19 @@ function App() {
             front={bookObject.front}
             back={bookObject.back}
             pages={bookObject.pages}
+            price={bookObject.price}
             firstPublished={bookObject.firstPublished}
             isInCart={bookObject.isInCart}
             handleAddToDom={handleAddToDom}
-            // handleClick={handleClick}
-            // addToCart={addToCart}
-            // isInCart={isInCart}
-            
-            />
-
-        )
+            giftCardTotal= {giftCardTotal}
+            setGiftCardTotal= {setGiftCardTotal}
+          />
+          )
     })
 
-    function handleAddToDom(updatedItem){
-      const booksOnDom = booksArray.map((bookObject) => {
-        if (bookObject.id === updatedItem.id)
+  function handleAddToDom(updatedItem){
+    const booksOnDom = booksArray.map((bookObject) => {
+      if (bookObject.id === updatedItem.id)
         return {...bookObject, isInCart: updatedItem.isInCart}
       else {
         return bookObject
@@ -90,35 +62,32 @@ function App() {
     }
 
 
-    function handleSearch(event){
-        setSearchedItems(event.target.value)
-        console.log(event)
+  function handleSearch(event){
+    setSearchedItems(event.target.value)
     }
-  
 
   return (
     <div className="App">
       <NavBar />
+      <GiftCard giftCardTotal={giftCardTotal} setGiftCardTotal={setGiftCardTotal}/>
+      <Switch>
+     
+        <Route exact path = "/about" >
+          <About />
+        </Route>
 
-     <Switch>
-     <Route exact path = "/about" >
-        <About />
-      </Route>
-
-      <Route exact path = "/bookscontainer">
-         <BooksContainer allBookCards={allBookCards}
+        <Route exact path = "/bookscontainer">
+          <BooksContainer 
+         allBookCards={allBookCards}
          handleSearch={handleSearch}
-      
-        
-          />
-      </Route>
+         />
+        </Route>
 
-      <Route exact path ="/usercart">
-        <UserCart 
-        booksArray={booksArray} 
-        />
-      </Route>
-
+        <Route exact path ="/usercart">
+          <UserCart 
+            booksArray={booksArray} 
+           />
+        </Route>
       </Switch>
     </div>
   );
