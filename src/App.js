@@ -8,7 +8,6 @@ import About from './About'
 import BookCard from './BookCard'
 import GiftCard from "./GiftCard"
 
-import Grid from '@mui/material/Grid';
 
 
 function App() {
