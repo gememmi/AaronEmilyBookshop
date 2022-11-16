@@ -10,7 +10,6 @@ function BooksContainer({allBookCards, handleSearch}) {
          </ul>
     </div>
 )
-
 }
 
 export default BooksContainer
