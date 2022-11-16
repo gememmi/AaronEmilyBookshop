@@ -7,7 +7,9 @@ function NavBar(){
         width: "50px",
         padding: "12px",
         margin: "0 6px 6px",
-        background: "blue",
+        background: "#d43131",
+        border: "5px solid #b14848",
+        borderRadius: 10,
         textDecoration: "none",
         color: "white",
       };

@@ -45,7 +45,7 @@ function BookCard({bookObject,id, front, title, author, genre, back, pages, pric
     return (
 
         <div className="book-item">
-            <Card sx={{ maxHeight: 480, maxWidth: 200, padding: 5, margin: 5, background: "#8A0505", borderRadius: 10, border: "5px solid #b14848" }}>
+            <Card sx={{ maxHeight: 500, maxWidth: 200, padding: 5, margin: 5, background: "#8A0505", borderRadius: 10, border: "5px solid #b14848" }}>
       <CardActionArea>
         <CardMedia       
           component="img"
@@ -75,8 +75,10 @@ function BookCard({bookObject,id, front, title, author, genre, back, pages, pric
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary" value={bookObject} onClick={()=>addToCart()}>{displayInCart ? "Remove from cart" : "Add to cart"}          
+        <Button sx={{border: "2px solid #20dfe6"}} size="small" color="primary" value={bookObject} onClick={()=>addToCart()}>{displayInCart ? "Remove from cart" : "Add to cart"}          
         </Button>
+        <Button sx={{border: "2px solid #20dfe6"}} size="small"   color="primary" value={bookObject} onClick={()=>handleGiftCardTotal()}>${price}          
+        </Button>     
       </CardActions>
     </Card>
         </div>

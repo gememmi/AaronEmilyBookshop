@@ -10,6 +10,9 @@ import GiftCard from "./GiftCard"
 
 import Grid from '@mui/material/Grid';
 
+import image from './images/bookshelf-1082309_1280.jpeg'
+
+
 
 function App() {
 
@@ -72,7 +75,7 @@ function App() {
     }
 
   return (
-    <div className="App">
+    <div className="App"  style={{ minHeight: "100vh", backgroundImage:`url(${image})` }}>
       <NavBar />
       <GiftCard giftCardTotal={giftCardTotal} setGiftCardTotal={setGiftCardTotal}/>
       <Switch>
