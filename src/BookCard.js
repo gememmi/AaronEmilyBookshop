@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 
+
+
 function BookCard({bookObject,id, front, title, author, genre, back, pages, price, firstPublished, handleClick, addToCart, isInCart, handleAddToDom, giftCardTotal, setGiftCardTotal}) {
     const [displayInfo, setDisplayInfo]= useState(true)
     const [displayInCart, setDisplayInCart] = useState(isInCart)
@@ -29,7 +31,7 @@ function BookCard({bookObject,id, front, title, author, genre, back, pages, pric
     return (
 
         <li className="book-item">
-            <div className="book-card">
+           <div>
                 <img
                     className="book-image"
                     src= {displayInfo ? front : back }
@@ -57,7 +59,7 @@ function BookCard({bookObject,id, front, title, author, genre, back, pages, pric
         <button value={bookObject} onClick={()=>addToCart()}>{displayInCart ? "Remove from cart" : "Add to cart"}</button>
         <button onClick={handleGiftCardTotal}>${price}</button>
 
-            </div>
+        </div>
         </li>
     )
 }
