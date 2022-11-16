@@ -1,8 +1,22 @@
 import React, {useState} from 'react';
 
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { Button, CardActionArea, CardActions } from '@mui/material';
+import { red } from '@mui/material/colors';
+import { borderRadius } from '@mui/system';
+
+import '@fontsource/roboto/300.css'
+
+
 
 
 function BookCard({bookObject,id, front, title, author, genre, back, pages, price, firstPublished, handleClick, addToCart, isInCart, handleAddToDom, giftCardTotal, setGiftCardTotal}) {
+
+    
+
     const [displayInfo, setDisplayInfo]= useState(true)
     const [displayInCart, setDisplayInCart] = useState(isInCart)
     
@@ -31,7 +45,7 @@ function BookCard({bookObject,id, front, title, author, genre, back, pages, pric
     return (
 
         <li className="book-item">
-           <div>
+            <div className="book-card">
                 <img
                     className="book-image"
                     src= {displayInfo ? front : back }
@@ -59,7 +73,7 @@ function BookCard({bookObject,id, front, title, author, genre, back, pages, pric
         <button value={bookObject} onClick={()=>addToCart()}>{displayInCart ? "Remove from cart" : "Add to cart"}</button>
         <button onClick={handleGiftCardTotal}>${price}</button>
 
-        </div>
+            </div>
         </li>
     )
 }

@@ -1,11 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import { Switch, Route} from "react-router-dom";
 import BooksContainer from './BooksContainer'; 
-import BookCard from './BookCard';
+// import BookCard from './BookCard';
 import UserCart from './UserCart';
 import NavBar from './NavBar';
 import About from './About';
 import GiftCard from "./GiftCard";
+
+import Grid from '@mui/material/Grid';
+
 
 function App() {
 
@@ -31,22 +34,23 @@ function App() {
 
     const allBookCards = searchedItemsArray.map(bookObject => {
       return ( 
-        <BookCard
-            id={bookObject.id} 
-            bookObject={bookObject}
-            title={bookObject.title} 
-            author={bookObject.author}
-            genre={bookObject.genre}
-            front={bookObject.front}
-            back={bookObject.back}
-            pages={bookObject.pages}
-            price={bookObject.price}
-            firstPublished={bookObject.firstPublished}
-            isInCart={bookObject.isInCart}
-            handleAddToDom={handleAddToDom}
-            giftCardTotal= {giftCardTotal}
-            setGiftCardTotal= {setGiftCardTotal}
-          />
+          <BookCard
+              id={bookObject.id} 
+              bookObject={bookObject}
+              title={bookObject.title} 
+              author={bookObject.author}
+              genre={bookObject.genre}
+              front={bookObject.front}
+              back={bookObject.back}
+              pages={bookObject.pages}
+              price={bookObject.price}
+              firstPublished={bookObject.firstPublished}
+              isInCart={bookObject.isInCart}
+              handleAddToDom={handleAddToDom}
+              giftCardTotal= {giftCardTotal}
+              setGiftCardTotal= {setGiftCardTotal}
+            />
+        
           )
     })
 
