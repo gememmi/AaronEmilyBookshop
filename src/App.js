@@ -1,12 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import { Switch, Route} from "react-router-dom";
 import BooksContainer from './BooksContainer'; 
-// import BookCard from './BookCard';
+import BookCard from './BookCard';
 import UserCart from './UserCart';
 import NavBar from './NavBar';
-import About from './About'
-import BookCard from './BookCard'
-import GiftCard from "./GiftCard"
+import About from './About';
+import GiftCard from "./GiftCard";
 
 
 
