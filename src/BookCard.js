@@ -28,22 +28,23 @@ function BookCard({bookObject,id, front, title, author, genre, back, pages, pric
         
     return (
 
-        <li className="card_item">
-            <div className="card">
-                <img 
+        <li className="book-item">
+            <div className="book-card">
+                <img
+                    className="book-image"
                     src= {displayInfo ? front : back }
                     alt= {title}
                     onClick= {handleClick}
                 />
                 {displayInfo ?
-                 <div className="card_title">
+                 <div className="card-title">
                     <h3>Title: </h3>
                     <p>{title}</p>
                     <h3>Author: </h3>
                     <p>{author}</p>
                     </div>
                 :
-                <div className="card_title">
+                <div className="card-info">
                     <h3>Genre:</h3>
                     <p>{genre}</p>
                     <h3>Page Count: </h3>

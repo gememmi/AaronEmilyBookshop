@@ -5,7 +5,7 @@ function BooksContainer({allBookCards, handleSearch}) {
  return (
     <div>
         <SearchBar handleSearch={handleSearch} />
-         <ul className="cards">
+         <ul className="cards-list">
             { allBookCards }
          </ul>
     </div>
