@@ -43,37 +43,44 @@ function BookCard({bookObject,id, front, title, author, genre, back, pages, pric
         
     return (
 
-        <li className="book-item">
-            <div className="book-card">
-                <img
-                    className="book-image"
-                    src= {displayInfo ? front : back }
-                    alt= {title}
-                    onClick= {handleClick}
-                />
-                {displayInfo ?
-                 <div className="card-title">
-                    <h3>Title: </h3>
-                    <p>{title}</p>
-                    <h3>Author: </h3>
-                    <p>{author}</p>
-                    </div>
-                :
-                <div className="card-info">
-                    <h3>Genre:</h3>
-                    <p>{genre}</p>
-                    <h3>Page Count: </h3>
-                    <p>{pages}</p>
-                    <h3>Year Published: </h3>
-                    <p>{firstPublished}</p>
-                    </div>
-                    
-        }
-        <button value={bookObject} onClick={()=>addToCart()}>{displayInCart ? "Remove from cart" : "Add to cart"}</button>
-        <button onClick={handleGiftCardTotal}>${price}</button>
-
-            </div>
-        </li>
+        <div className="book-item">
+            <Card sx={{ maxHeight: 500, maxWidth: 200, padding: 5, margin: 5, background: "#8A0505", borderRadius: 10, border: "5px solid #b14848" }}>
+      <CardActionArea>
+        <CardMedia       
+          component="img"
+          height="300"
+          onClick={handleClick}
+          image={displayInfo ? front : back }
+          alt={title}
+        />
+        <CardContent>
+           <Typography>
+                <Typography gutterBottom variant="h5" component="div" fontSize={16}>
+                    {title}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                    Author: {author}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                    Genre: {genre}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                    Page Count: {pages}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                    First Published: {firstPublished}
+                </Typography>
+            </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+        <Button sx={{border: "2px solid #20dfe6"}} size="small" color="primary" value={bookObject} onClick={()=>addToCart()}>{displayInCart ? "Remove from cart" : "Add to cart"}          
+        </Button>
+        <Button sx={{border: "2px solid #20dfe6"}} size="small"   color="primary" value={bookObject} onClick={()=>handleGiftCardTotal()}>${price}          
+        </Button>     
+      </CardActions>
+    </Card>
+        </div>
     )
 }
 
