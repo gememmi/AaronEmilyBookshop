@@ -8,7 +8,6 @@ import { Button, CardActionArea, CardActions } from '@mui/material';
 import { red } from '@mui/material/colors';
 import { borderRadius } from '@mui/system';
 
-import '@fontsource/roboto/300.css'
 
 
 
