@@ -16,8 +16,7 @@ function UserCart(){
     const usersBooks = userBooksArray.filter(bookObject => {
         return bookObject.isInCart === true})
     
-    console.log(usersBooks)
-
+    
     const mappedBooks = usersBooks.map((book) => 
     
       <h1>{book.title}</h1>
