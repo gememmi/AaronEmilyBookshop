@@ -14,7 +14,7 @@ function BooksContainer({allBookCards, handleSearch}) {
             <div>
                 <SearchBar handleSearch={handleSearch}/>
             </div>
-            <div>        
+            <div style={{marginLeft: "171px"}}>        
                 <Grid className="cards-list" 
                     container spacing={2}
                     direction="row"
