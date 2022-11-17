@@ -3,13 +3,13 @@ import React from "react";
 function SearchBar({handleSearch}) {
 
     return (
-        <div className="search-bar" style={{marginLeft: "635px"}}>
+        <div className="search-bar" style={{marginLeft: "587px"}}>
             <input 
                 type="text"
                 className="searchTerm"
                 onChange={handleSearch}
-                placeholder= "Search book collection..."
-                style={{padding: "5px"}}
+                placeholder= "Search book collection ..."
+                style={{paddingTop: "10px", paddingBottom: "10px", paddingLeft: "50px", paddingRight:"50px", border: "2px solid #8A0505"}}
             />
         </div>
 
