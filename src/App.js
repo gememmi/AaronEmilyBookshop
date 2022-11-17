@@ -6,10 +6,10 @@ import UserCart from './UserCart';
 import NavBar from './NavBar';
 import About from './About';
 import GiftCard from "./GiftCard";
-import Header from "./Header"
+// import Header from "./Header";
 
 
-import image from './images/bookshelf-1082309_1280.jpeg'
+import image from './images/bookshelf-1082309_1280.jpeg';
 
 
 
@@ -80,9 +80,9 @@ function App() {
 
   return (
     <div className="App"  style={{ minHeight: "100vh", backgroundImage:`url(${image})` }}>
-      <div>
+      {/* <div>
       <Header />
-      </div>
+      </div> */}
 
       <NavBar />
       <GiftCard giftCardTotal={giftCardTotal} setGiftCardTotal={setGiftCardTotal}/>
