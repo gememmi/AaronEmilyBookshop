@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import Grid from '@mui/material/Grid';
 
-function UserCart({giftCardTotal, setGiftCardTotal, }){
+function UserCart({giftCardTotal, setGiftCardTotal, booksArray }){
 
     const [userBooksArray, setUserBooksArray] = useState([])
 
@@ -29,9 +29,9 @@ function UserCart({giftCardTotal, setGiftCardTotal, }){
       <h1>{bookObject.title}</h1>
 
       function handleGiftCardTotal(){
-        if(giftCardTotal > 0)
-        setGiftCardTotal(giftCardTotal - 10)
-        }
+        if(giftCardTotal > 0 && giftCardTotal != 0){
+    return setGiftCardTotal((giftCardTotal) => giftCardTotal - bookObject.price)
+    }}
 
         function handleAddToDom(updatedItem){
             const booksOnDom = userBooksArray.map((bookObject) => {
@@ -62,11 +62,11 @@ function UserCart({giftCardTotal, setGiftCardTotal, }){
     return (
 
         <div className="book-item">
-            <Card sx={{ maxHeight: 500, maxWidth: 200, padding: 5, margin: 5, background: "#f5f12c", borderRadius: 10, border: "5px solid #b14848" }}>
+            <Card sx={{ maxHeight: 500, alignItems: "flex start", justifyContent:"space-between", maxWidth: 200, padding: 5, margin: 5, background: "#f5f12c", borderRadius: 10, border: "5px solid #b14848" }}>
       <CardActionArea>
         <CardMedia 
           sx={{ borderRadius: 10, border: "5px solid #b14848"}}
-        //   border= "5px solid #b14848"       
+           
           component="img"
           height="300"
           image={bookObject.front}

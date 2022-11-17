@@ -77,6 +77,7 @@ function App() {
   function handleSearch(event){
     setSearchedItems(event.target.value)
     }
+ 
 
   return (
     <div className="App"  style={{ minHeight: "100vh", backgroundImage:`url(${image})` }}>
@@ -107,6 +108,8 @@ function App() {
             giftCardTotal={giftCardTotal}
             setGiftCardTotal={setGiftCardTotal}
             handleAddToDom={handleAddToDom}
+            
+           
            />
         </Route>
       </Switch>

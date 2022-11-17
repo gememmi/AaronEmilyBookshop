@@ -10,7 +10,7 @@
       "pages": 238,
       "firstPublished": 1937,
       "isInCart": true,
-      "price": 10
+      "price": 11
     },
     {
       "id": 2,
@@ -34,7 +34,7 @@
       "pages": 534,
       "firstPublished": 2011,
       "isInCart": false,
-      "price": 10
+      "price": 17
     },
     {
       "id": 4,
@@ -46,7 +46,7 @@
       "pages": 208,
       "firstPublished": 1958,
       "isInCart": false,
-      "price": 10
+      "price": 6
     },
     {
       "id": 5,
@@ -58,7 +58,7 @@
       "pages": 448,
       "firstPublished": 2000,
       "isInCart": false,
-      "price": 10
+      "price": 19
     },
     {
       "id": 6,
@@ -70,7 +70,7 @@
       "pages": 276,
       "firstPublished": 2008,
       "isInCart": false,
-      "price": 10
+      "price": 6
     },
     {
       "id": 7,
@@ -82,7 +82,7 @@
       "pages": 276,
       "firstPublished": 2008,
       "isInCart": false,
-      "price": 10
+      "price": 23.00
     },
     {
       "id": 8,
@@ -94,7 +94,7 @@
       "pages": 387,
       "firstPublished": 1974,
       "isInCart": false,
-      "price": 10
+      "price": 9
     },
     {
       "id": 9,
@@ -106,7 +106,7 @@
       "pages": 285,
       "firstPublished": 1997,
       "isInCart": true,
-      "price": 10
+      "price": 11
     },
     {
       "id": 10,
@@ -118,7 +118,7 @@
       "pages": 184,
       "firstPublished": 1957,
       "isInCart": false,
-      "price": 10
+      "price": 12
     },
     {
       "id": 11,
@@ -131,7 +131,7 @@
       "firstPublished": 1999,
       "inCart": false,
       "isInCart": false,
-      "price": 10
+      "price": 16
     },
     {
       "id": 12,
@@ -144,7 +144,7 @@
       "firstPublished": 1952,
       "inCart": false,
       "isInCart": true,
-      "price": 10
+      "price": 25.00
     },
     {
       "id": 13,
@@ -156,7 +156,7 @@
       "pages": 341,
       "firstPublished": 2003,
       "isInCart": false,
-      "price": 10
+      "price": 27
     },
     {
       "id": 14,
@@ -168,7 +168,7 @@
       "pages": 400,
       "firstPublished": 2021,
       "isInCart": false,
-      "price": 10
+      "price": 18
     },
     {
       "id": 15,
@@ -180,8 +180,8 @@
       "pages": 232,
       "firstPublished": 2006,
       "isInCart": false,
-      "price": 10
-    },
+      "price": 20   
+     },
     {
       "id": 16,
       "title": "Go Tell It On The Mountain",
@@ -204,7 +204,7 @@
       "pages": 456,
       "firstPublished": 2017,
       "isInCart": false,
-      "price": 10
+      "price": 15
     },
     {
       "id": 18,
@@ -216,7 +216,7 @@
       "pages": 233,
       "firstPublished": 1998,
       "isInCart": false,
-      "price": 10
+      "price": 16
     },
     {
       "id": 19,
@@ -240,7 +240,7 @@
       "pages": 201,
       "firstPublished": 1915,
       "isInCart": false,
-      "price": 10
+      "price": 12
     }
   ]
 }
