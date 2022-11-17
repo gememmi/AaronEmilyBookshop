@@ -91,7 +91,11 @@ function App() {
 
         <Route exact path ="/usercart">
           <UserCart 
-            booksArray={booksArray} 
+            booksArray={booksArray}
+            // Potential boilerplate
+            giftCardTotal={giftCardTotal}
+            setGiftCardTotal={setGiftCardTotal}
+            handleAddToDom={handleAddToDom}
            />
         </Route>
       </Switch>

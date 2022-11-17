@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from 'react';  
 import BookCard from './BookCard'
 
-function UserCart(){
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { Button, CardActionArea, CardActions } from '@mui/material';
+import Grid from '@mui/material/Grid';
+
+function UserCart({giftCardTotal, setGiftCardTotal, }){
 
     const [userBooksArray, setUserBooksArray] = useState([])
 
@@ -17,16 +24,106 @@ function UserCart(){
         return bookObject.isInCart === true})
     
     
-    const mappedBooks = usersBooks.map((book) => 
+    const mappedBooks = usersBooks.map((bookObject) => {
     
-      <h1>{book.title}</h1>
+      <h1>{bookObject.title}</h1>
+
+      function handleGiftCardTotal(){
+        if(giftCardTotal > 0)
+        setGiftCardTotal(giftCardTotal - 10)
+        }
+
+        function handleAddToDom(updatedItem){
+            const booksOnDom = userBooksArray.map((bookObject) => {
+              if (bookObject.id === updatedItem.id)
+                return {...bookObject, isInCart: updatedItem.isInCart}
+              else {
+                return bookObject
+              }
+              }) 
+              setUserBooksArray(booksOnDom)
+            }
+
+        function addToCart(){
+            // setDisplayInCart(!displayInCart)
+            
+            fetch(`http://localhost:3000/books/${bookObject.id}`,
+            {
+            method:"PATCH",
+            headers:{"Content-Type":"application/json",
+            },
+            body:JSON.stringify({isInCart: !bookObject.isInCart,}),
+            }
+            )
+            .then((r)=>r.json())
+            .then((updatedItem)=> handleAddToDom(updatedItem));
+        }
+
+    return (
+
+        <div className="book-item">
+            <Card sx={{ maxHeight: 500, maxWidth: 200, padding: 5, margin: 5, background: "#8A0505", borderRadius: 10, border: "5px solid #b14848" }}>
+      <CardActionArea>
+        <CardMedia       
+          component="img"
+          height="300"
+          image={bookObject.front}
+          alt={bookObject.title}
+        />
+        <CardContent>
+           <Typography>
+                <Typography gutterBottom variant="h5" component="div" fontSize={16}>
+                    {bookObject.title}
+                </Typography>
+            </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+      <Button sx={{border: "2px solid #20dfe6"}} size="small" color="primary" value={bookObject} onClick={()=>addToCart()}>{"Remove from cart" }          
+        </Button>
+        <Button sx={{border: "2px solid #20dfe6"}} size="small"   color="primary" value={bookObject} onClick={()=>handleGiftCardTotal()}>${bookObject.price}          
+        </Button>     
+      </CardActions>
+    </Card>
+        </div>
+    )
+
+    }  
     )
     
+    // Potential boilerplate
+    // const [displayInCart, setDisplayInCart] = useState(bookObject.isInCart)
+
+    // function handleGiftCardTotal(){
+    //     if(giftCardTotal > 0)
+    //     setGiftCardTotal(giftCardTotal - 10)
+    // }
+
+    // function addToCart(){
+    //     setDisplayInCart(!displayInCart)
+        
+    //     fetch(`http://localhost:3000/books/${bookObject.id}`,
+    //     {
+    //     method:"PATCH",
+    //     headers:{"Content-Type":"application/json",
+    //     },
+    //     body:JSON.stringify({isInCart: !bookObject.isInCart,}),
+    //     }
+    //     )
+    //     .then((r)=>r.json())
+    //     .then((updatedItem)=> handleAddToDom(updatedItem));
+    // }
     
     return(
 
         <div>
-            {mappedBooks}
+            <Grid className="cards-list" 
+                    container spacing={2}
+                    direction="row"
+                    justify="flex-start"
+                    alignItems="flex-start" >
+                            { mappedBooks }    
+                </Grid>
         </div>
         
     )
