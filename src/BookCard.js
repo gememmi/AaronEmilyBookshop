@@ -1,12 +1,11 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
-import { red } from '@mui/material/colors';
-import { borderRadius } from '@mui/system';
+import WebFont from 'webfontloader';
 
 
 
@@ -40,10 +39,20 @@ function BookCard({bookObject,id, front, title, author, genre, back, pages, pric
         .then((r)=>r.json())
         .then((updatedItem)=> handleAddToDom(updatedItem));
     }
+    useEffect(() => {
+        WebFont.load({
+          google: {
+            families: ['Noto Serif Oriya']
+          }
+        });
+       }, []);
+
+
+
         
     return (
 
-        <div className="book-item">
+        <div className="book-item" sx={{display: "flex", justifyContent: "center"}}>
             <Card sx={{ maxHeight: 500, maxWidth: 200, padding: 5, margin: 5, background: "#8A0505", borderRadius: 10, border: "5px solid #b14848" }}>
       <CardActionArea>
         <CardMedia       
@@ -55,19 +64,19 @@ function BookCard({bookObject,id, front, title, author, genre, back, pages, pric
         />
         <CardContent>
            <Typography>
-                <Typography gutterBottom variant="h5" component="div" fontSize={16}>
+                <Typography gutterBottom variant="h5" component="div" fontSize={16} fontFamily="Noto Serif Oriya">
                     {title}
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="body2" color="text.secondary" fontFamily="Noto Serif Oriya">
                     Author: {author}
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="body2" color="text.secondary" fontFamily="Noto Serif Oriya">
                     Genre: {genre}
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="body2" color="text.secondary" fontFamily="Noto Serif Oriya">
                     Page Count: {pages}
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="body2" color="text.secondary" fontFamily="Noto Serif Oriya">
                     First Published: {firstPublished}
                 </Typography>
             </Typography>
