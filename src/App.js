@@ -18,6 +18,7 @@ function App() {
     const [ searchedItems, setSearchedItems] = useState("")
     const [giftCardTotal, setGiftCardTotal] = useState(50)
 
+
     useEffect(() => {
         fetch('http://localhost:3000/books')
         .then(response => response.json())
