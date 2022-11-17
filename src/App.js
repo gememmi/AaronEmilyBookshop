@@ -34,6 +34,10 @@ function App() {
               bookObject.author.toLowerCase().includes(searchedItems.toLowerCase())
         ||
               bookObject.genre.toLowerCase().includes(searchedItems.toLowerCase())
+        ||
+              bookObject.pages.toString().includes(searchedItems.toString()) 
+        ||
+              bookObject.firstPublished.toString().includes(searchedItems.toString())           
       })
 
     const allBookCards = searchedItemsArray.map(bookObject => {

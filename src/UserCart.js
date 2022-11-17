@@ -62,9 +62,11 @@ function UserCart({giftCardTotal, setGiftCardTotal, }){
     return (
 
         <div className="book-item">
-            <Card sx={{ maxHeight: 500, maxWidth: 200, padding: 5, margin: 5, background: "#8A0505", borderRadius: 10, border: "5px solid #b14848" }}>
+            <Card sx={{ maxHeight: 500, maxWidth: 200, padding: 5, margin: 5, background: "#f5f12c", borderRadius: 10, border: "5px solid #b14848" }}>
       <CardActionArea>
-        <CardMedia       
+        <CardMedia 
+          sx={{ borderRadius: 10, border: "5px solid #b14848"}}
+        //   border= "5px solid #b14848"       
           component="img"
           height="300"
           image={bookObject.front}
@@ -79,9 +81,15 @@ function UserCart({giftCardTotal, setGiftCardTotal, }){
         </CardContent>
       </CardActionArea>
       <CardActions>
-      <Button sx={{border: "2px solid #20dfe6"}} size="small" color="primary" value={bookObject} onClick={()=>addToCart()}>{"Remove from cart" }          
+      <Button sx={{border: "2px solid #2094e6"}} size="small" color="primary" value={bookObject} onClick={()=>addToCart()}>{"Remove from cart" }          
         </Button>
-        <Button sx={{border: "2px solid #20dfe6"}} size="small"   color="primary" value={bookObject} onClick={()=>handleGiftCardTotal()}>${bookObject.price}          
+        <Button sx={{border: "2px solid #2094e6"}} size="small"   color="primary" value={bookObject} onClick={
+            ()=> { 
+                handleGiftCardTotal()
+                alert('Thank you for your purchase!')
+            }
+
+            }>Buy for ${bookObject.price}          
         </Button>     
       </CardActions>
     </Card>
