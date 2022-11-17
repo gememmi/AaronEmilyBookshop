@@ -22,10 +22,11 @@ function NavBar(){
         textDecoration: "none",
         textAlign: "center",
         color: "white",
-        fontFamily: "Noto Serif Oriya"
+        fontFamily: "Noto Serif Oriya",
+        marginTop: "25px"
       };
     return (
-        <div>
+        <div style={{display:"flex", justifyContent: "center"}}>
             <NavLink style={linkStyles} exact to="/about" >
                 About
             </NavLink>
