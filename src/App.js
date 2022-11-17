@@ -6,6 +6,7 @@ import UserCart from './UserCart';
 import NavBar from './NavBar';
 import About from './About';
 import GiftCard from "./GiftCard";
+import Header from "./Header"
 
 
 import image from './images/bookshelf-1082309_1280.jpeg'
@@ -75,8 +76,13 @@ function App() {
 
   return (
     <div className="App"  style={{ minHeight: "100vh", backgroundImage:`url(${image})` }}>
+      <div>
+      <Header />
+      </div>
+
       <NavBar />
       <GiftCard giftCardTotal={giftCardTotal} setGiftCardTotal={setGiftCardTotal}/>
+      
       <Switch>
      
         <Route exact path = "/about" >
