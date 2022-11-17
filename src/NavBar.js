@@ -1,7 +1,16 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { NavLink } from "react-router-dom";
+import WebFont from 'webfontloader';
 
 function NavBar(){
+    useEffect(() => {
+        WebFont.load({
+          google: {
+            families: ['Noto Serif Oriya']
+          }
+        });
+       }, []);
+
     const linkStyles = {
         display: "inline-block",
         width: "105px",
@@ -13,6 +22,7 @@ function NavBar(){
         textDecoration: "none",
         textAlign: "center",
         color: "white",
+        fontFamily: "Noto Serif Oriya"
       };
     return (
         <div>
