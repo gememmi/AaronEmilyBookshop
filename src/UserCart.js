@@ -29,7 +29,7 @@ function UserCart({giftCardTotal, setGiftCardTotal, booksArray }){
       <h1>{bookObject.title}</h1>
 
       function handleGiftCardTotal(){
-        if(giftCardTotal > 0 && giftCardTotal != 0){
+        if(giftCardTotal > 0 && giftCardTotal != 0 && giftCardTotal > bookObject.price){
     return setGiftCardTotal((giftCardTotal) => giftCardTotal - bookObject.price)
     }}
 
