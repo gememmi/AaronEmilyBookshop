@@ -28,10 +28,16 @@ function UserCart({giftCardTotal, setGiftCardTotal, booksArray }){
     
       <h1>{bookObject.title}</h1>
 
-      function handleGiftCardTotal(){
-        if(giftCardTotal > 0 && giftCardTotal != 0 && giftCardTotal > bookObject.price){
-    return setGiftCardTotal((giftCardTotal) => giftCardTotal - bookObject.price)
-    }}
+    function handleGiftCardTotal(){
+      if(giftCardTotal > 0 && giftCardTotal > bookObject.price){
+        {setGiftCardTotal((giftCardTotal) => giftCardTotal - bookObject.price)
+          alert('Thank you for your purchase!')}
+
+  }
+    else {
+       alert('Declined!')
+    }
+    }
 
         function handleAddToDom(updatedItem){
             const booksOnDom = userBooksArray.map((bookObject) => {
@@ -83,13 +89,11 @@ function UserCart({giftCardTotal, setGiftCardTotal, booksArray }){
       <CardActions>
       <Button sx={{border: "2px solid #2094e6"}} size="small" color="primary" value={bookObject} onClick={()=>addToCart()}>{"Remove from cart" }          
         </Button>
-        <Button sx={{border: "2px solid #2094e6"}} size="small"   color="primary" value={bookObject} onClick={
-            ()=> { 
-                handleGiftCardTotal()
-                alert('Thank you for your purchase!')
-            }
-
-            }>Buy for ${bookObject.price}          
+        <Button sx={{border: "2px solid #2094e6"}} size="small"   color="primary" value={bookObject} onClick={handleGiftCardTotal
+           
+            
+            
+          }>Buy for ${bookObject.price}          
         </Button>     
       </CardActions>
     </Card>
@@ -120,7 +124,15 @@ function UserCart({giftCardTotal, setGiftCardTotal, booksArray }){
     //     )
     //     .then((r)=>r.json())
     //     .then((updatedItem)=> handleAddToDom(updatedItem));
+
+
     // }
+
+  //   ()=> { 
+  //     handleGiftCardTotal()
+  //     alert('Thank you for your purchase!')
+  // }
+
     
     return(
 

@@ -155,7 +155,7 @@
       "back": "https://abclive1.s3.amazonaws.com/141ddcac-911f-4e8f-b64e-cf116d5e9a48/productimage/9780099523994___1___L.jpg",
       "pages": 341,
       "firstPublished": 2003,
-      "isInCart": false,
+      "isInCart": true,
       "price": 27
     },
     {
