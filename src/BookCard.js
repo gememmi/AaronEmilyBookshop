@@ -11,7 +11,7 @@ import WebFont from 'webfontloader';
 
 
 
-function BookCard({bookObject,id, front, title, author, genre, back, pages, price, firstPublished, handleClick, addToCart, isInCart, handleAddToDom, giftCardTotal, setGiftCardTotal}) {
+function BookCard({bookObject,id, front, title, author, genre, back, pages, price, firstPublished, handleClick, addToCart, isInCart, handleAddToDom, giftCardTotal, setGiftCardTotal, handleGiftCardTotal}) {
 
     
 
@@ -21,10 +21,10 @@ function BookCard({bookObject,id, front, title, author, genre, back, pages, pric
     function handleClick(){
         setDisplayInfo(!displayInfo)
     }
-    function handleGiftCardTotal(){
-        if(giftCardTotal > 0)
-        setGiftCardTotal(giftCardTotal - 10)
-    }
+    // function handleGiftCardTotal(){
+    //     if(giftCardTotal > 0)
+    //     setGiftCardTotal(giftCardTotal - bookObject.price)
+    // }
     function addToCart(){
         setDisplayInCart(!displayInCart)
         

@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import Grid from '@mui/material/Grid';
 
-function UserCart({giftCardTotal, setGiftCardTotal, }){
+function UserCart({giftCardTotal, setGiftCardTotal, booksArray }){
 
     const [userBooksArray, setUserBooksArray] = useState([])
 
@@ -28,10 +28,16 @@ function UserCart({giftCardTotal, setGiftCardTotal, }){
     
       <h1>{bookObject.title}</h1>
 
-      function handleGiftCardTotal(){
-        if(giftCardTotal > 0)
-        setGiftCardTotal(giftCardTotal - 10)
-        }
+    function handleGiftCardTotal(){
+      if(giftCardTotal > 0 && giftCardTotal > bookObject.price){
+        {setGiftCardTotal((giftCardTotal) => giftCardTotal - bookObject.price)
+          alert('Thank you for your purchase!')}
+
+  }
+    else {
+       alert('Declined!')
+    }
+    }
 
         function handleAddToDom(updatedItem){
             const booksOnDom = userBooksArray.map((bookObject) => {
@@ -62,11 +68,11 @@ function UserCart({giftCardTotal, setGiftCardTotal, }){
     return (
 
         <div className="book-item">
-            <Card sx={{ maxHeight: 500, maxWidth: 200, padding: 5, margin: 5, background: "#f5f12c", borderRadius: 10, border: "5px solid #b14848" }}>
+            <Card sx={{ maxHeight: 500, alignItems: "flex start", justifyContent:"space-between", maxWidth: 200, padding: 5, margin: 5, background: "#f5f12c", borderRadius: 10, border: "5px solid #b14848" }}>
       <CardActionArea>
         <CardMedia 
           sx={{ borderRadius: 10, border: "5px solid #b14848"}}
-        //   border= "5px solid #b14848"       
+           
           component="img"
           height="300"
           image={bookObject.front}
@@ -83,13 +89,11 @@ function UserCart({giftCardTotal, setGiftCardTotal, }){
       <CardActions>
       <Button sx={{border: "2px solid #2094e6"}} size="small" color="primary" value={bookObject} onClick={()=>addToCart()}>{"Remove from cart" }          
         </Button>
-        <Button sx={{border: "2px solid #2094e6"}} size="small"   color="primary" value={bookObject} onClick={
-            ()=> { 
-                handleGiftCardTotal()
-                alert('Thank you for your purchase!')
-            }
-
-            }>Buy for ${bookObject.price}          
+        <Button sx={{border: "2px solid #2094e6"}} size="small"   color="primary" value={bookObject} onClick={handleGiftCardTotal
+           
+            
+            
+          }>Buy for ${bookObject.price}          
         </Button>     
       </CardActions>
     </Card>
@@ -120,7 +124,15 @@ function UserCart({giftCardTotal, setGiftCardTotal, }){
     //     )
     //     .then((r)=>r.json())
     //     .then((updatedItem)=> handleAddToDom(updatedItem));
+
+
     // }
+
+  //   ()=> { 
+  //     handleGiftCardTotal()
+  //     alert('Thank you for your purchase!')
+  // }
+
     
     return(
 

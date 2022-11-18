@@ -3,7 +3,7 @@ import React from "react";
 function SearchBar({handleSearch}) {
 
     return (
-        <div className="search-bar" style={{marginLeft: "587px"}}>
+        <div className="search-bar"  style={{display:"flex", justifyContent: "center"}}>
             <input 
                 type="text"
                 className="searchTerm"
